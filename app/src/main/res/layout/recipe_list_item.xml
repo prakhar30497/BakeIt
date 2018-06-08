@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_recipe_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/recipe_list_item_height">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/recipe_list_item_height"
+                android:scaleType="centerCrop"
+                android:src="@drawable/np"
+                android:contentDescription="@string/recipe_image_view"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/recipe_list_item_height"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/scrim"/>
+
+            <TextView
+                android:id="@+id/tv_recipe_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_recipe_servings"
+                android:layout_alignStart="@+id/tv_recipe_servings"
+                android:clickable="true"
+                android:text="Brownies"
+                android:textAllCaps="true"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_recipe_servings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8 Servings"
+                android:layout_alignParentBottom="true"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="16dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:clickable="true" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>
