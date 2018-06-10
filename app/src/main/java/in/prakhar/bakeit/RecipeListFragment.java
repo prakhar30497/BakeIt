@@ -51,7 +51,21 @@ public class RecipeListFragment extends Fragment implements RecipeAdapter.Recipe
             @Override
             public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
 
-                List<Recipe> mRecipes = response.body();
+                mRecipes = response.body();
+                for(int i=0; i<mRecipes.size(); i++){
+                    if(mRecipes.get(i).getId() == 1){
+                        mRecipes.get(i).setImage(R.drawable.nutella_pie);
+                    }
+                    else if(mRecipes.get(i).getId() == 2){
+                        mRecipes.get(i).setImage(R.drawable.brownies);
+                    }
+                    else if(mRecipes.get(i).getId() == 3){
+                        mRecipes.get(i).setImage(R.drawable.yellow_cake);
+                    }
+                    else if(mRecipes.get(i).getId() == 4){
+                        mRecipes.get(i).setImage(R.drawable.cheesecake);
+                    }
+                }
                 mAdapter.setRecipeData(mRecipes);
             }
 
@@ -60,7 +74,6 @@ public class RecipeListFragment extends Fragment implements RecipeAdapter.Recipe
 
             }
         });
-
 
 
         return rootView;

@@ -40,9 +40,7 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
         holder.mName.setText(recipe.getName());
         holder.mServings.setText(recipe.getServings());
 
-        Picasso.with(context)
-                .load(recipe.getImage())
-                .into(holder.mImage);
+        holder.mImage.setImageResource(recipe.getImage());
 
         holder.mView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -65,13 +63,17 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
 
         public final View mView;
         public Recipe mRecipe;
-        @BindView(R.id.iv_recipe) ImageView mImage;
-        @BindView(R.id.tv_recipe_name) TextView mName;
-        @BindView(R.id.tv_recipe_servings) TextView mServings;
+        public ImageView mImage;
+        public TextView mName;
+        public TextView mServings;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
+            mImage = (ImageView) itemView.findViewById(R.id.iv_recipe);
+            mName = (TextView) itemView.findViewById(R.id.tv_recipe_name);
+            mServings = (TextView) itemView.findViewById(R.id.tv_recipe_servings);
+
             itemView.setOnClickListener(this);
         }
 
