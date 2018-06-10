@@ -63,7 +63,7 @@ public class RecipeUtils {
                 }
 
                 int servings = currentRecipe.getInt("servings");
-                String image = currentRecipe.getString("image");
+                int image = currentRecipe.getInt("image");
 
                 Recipe recipe = new Recipe(id, name, ingredientList, stepList, servings, image);
                 recipes.add(recipe);

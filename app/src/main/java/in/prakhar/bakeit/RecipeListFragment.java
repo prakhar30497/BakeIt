@@ -20,11 +20,11 @@ import retrofit2.Response;
 public class RecipeListFragment extends Fragment implements RecipeAdapter.RecipeItemClickHandler{
 
     private static final String ALL_RECIPES = "all recipes";
-    @BindView(R.id.rv_recipes)
-    RecyclerView mRecyclerView;
+
+    private RecyclerView mRecyclerView;
 
     private RecipeAdapter mAdapter;
-    private List<Recipe> recipeList;
+    private List<Recipe> mRecipes;
 
     public RecipeListFragment(){
     }
@@ -34,8 +34,10 @@ public class RecipeListFragment extends Fragment implements RecipeAdapter.Recipe
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_recipe_list, container, false);
 
-        recipeList = new ArrayList<>();
-        mAdapter = new RecipeAdapter(recipeList, this);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.rv_recipes);
+
+        mRecipes = new ArrayList<>();
+        mAdapter = new RecipeAdapter(mRecipes, this);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
 
