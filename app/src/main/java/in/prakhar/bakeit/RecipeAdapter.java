@@ -2,6 +2,7 @@ package in.prakhar.bakeit;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,9 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     private List<Recipe> mRecipes;
     final private RecipeItemClickHandler mOnClickListener;
 
+    public interface RecipeItemClickHandler{
+        public void onListItemClick(Recipe clickedRecipe);
+    }
 
     public RecipeAdapter(List<Recipe> recipes, RecipeItemClickHandler listener) {
         mRecipes = recipes;
@@ -35,12 +39,13 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Context context = holder.mView.getContext();
         Recipe recipe = mRecipes.get(position);
-
         holder.mRecipe = recipe;
         holder.mName.setText(recipe.getName());
-        holder.mServings.setText(recipe.getServings());
+        holder.mServings.setText(recipe.getServings()+" servings");
 
-        holder.mImage.setImageResource(recipe.getImage());
+        Picasso.with(context)
+                .load(recipe.getImage())
+                .into(holder.mImage);
 
         holder.mView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -53,10 +58,6 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return mRecipes.size();
-    }
-
-    public interface RecipeItemClickHandler{
-        public void onListItemClick(Recipe clickedRecipe);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
