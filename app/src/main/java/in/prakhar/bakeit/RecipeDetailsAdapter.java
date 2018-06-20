@@ -25,11 +25,10 @@ public class RecipeDetailsAdapter extends RecyclerView.Adapter<RecipeDetailsAdap
     }
 
     @Override
-    public RecipeDetailsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_list_item, parent, false);
-        return new RecipeDetailsAdapter.ViewHolder(view);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_details_item, parent, false);
+        return new ViewHolder(view);
     }
-
 
     @Override
     public void onBindViewHolder(final RecipeDetailsAdapter.ViewHolder holder, int position) {
@@ -72,7 +71,7 @@ public class RecipeDetailsAdapter extends RecyclerView.Adapter<RecipeDetailsAdap
         }
     }
 
-    public void setRecipeData(List<Step> steps){
+    public void setStepData(List<Step> steps){
         mSteps = steps;
         notifyDataSetChanged();
     }

@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecipeListFragment recipeListFragment = new RecipeListFragment();
-
         recipeListFragment.setArguments(getIntent().getExtras());
+
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, recipeListFragment)
                 .commit();

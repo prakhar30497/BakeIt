@@ -1,5 +1,6 @@
 package in.prakhar.bakeit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -139,6 +140,8 @@ public class RecipeListFragment extends Fragment implements RecipeAdapter.Recipe
 
     @Override
     public void onListItemClick(Recipe clickedRecipe) {
-
+        Intent intent = new Intent(getActivity(), RecipeDetailsActivity.class);
+        intent.putExtra("Recipe", clickedRecipe);
+        startActivity(intent);
     }
 }

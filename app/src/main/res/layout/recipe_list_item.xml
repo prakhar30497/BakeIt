@@ -19,7 +19,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/recipe_list_item_height"
                 android:scaleType="centerCrop"
-                android:src="@drawable/np"
                 android:contentDescription="@string/recipe_image_view"/>
             <View
                 android:layout_width="match_parent"
